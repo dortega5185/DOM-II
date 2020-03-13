@@ -18,25 +18,9 @@
 //     }
 // )
 
-// document.querySelectorAll('a').addEventListener('mouseenter', function( event ) {
-//     event.target.style.color = 'purple';
-//     setTimeout(function() {
-//         event.target.style.color = '';
-// }, 500);
-// }, false);
 
-
-// #1
+// #1 click
 const h1Tag = document.querySelector('h1')
-
-// function clickFunction(e) {
-//   e.preventDefault();
-//   h1Tag.style.backgroundColor = 'yellow';
-// }
-
-// function changeContent() {
-//   h1Tag.innerHTML = 'Welcome!'
-// }
 
 h1Tag.addEventListener('click', function(e){
     e.preventDefault();
@@ -53,7 +37,7 @@ h1Tag.addEventListener('click', function(){
   }, 1000);
 }, false);
 
-//#2 
+//#2 mouseover
 const aTags = document.querySelectorAll('.nav-link')
 
 aTags.forEach(atag => atag.addEventListener('mouseover', function() {
@@ -63,13 +47,61 @@ aTags.forEach(atag => atag.addEventListener('mouseover', function() {
     
 }))
 
+//#3 copy
+const toCopy = document.querySelector('.intro p')
 
-// aTags.addEventListener('hover', function() {
-    
-    // e.preventDefault();
-    // hover.aTags.style.color = 'blue';
-    // setTimeout(function() {
-    // aTags.style.color = 'black';
-    // }, 1000);
-// })
-// , false);
+toCopy.addEventListener('copy', function() {
+    toCopy.style.backgroundColor = 'green';
+})
+
+//#4 dblclick
+const doubleClk = document.querySelector('h2')
+
+doubleClk.addEventListener('dblclick', function() {
+    doubleClk.style.fontSize = '4rem';
+})
+
+//#5 mouseup
+const grabP = document.querySelectorAll('.text-content p')
+
+grabP.forEach(grab =>
+  grab.addEventListener('mouseup', function() {
+    grabP.forEach(item => {
+      item.style.display = "none";
+    });
+  })
+);
+
+//#6 resize
+window.addEventListener('resize', function() {
+    document.querySelector('.text-content h2').innerHTML = `Mobile Bus Let's Go!`
+})
+
+//#7 mouseout
+const signBtns = document.querySelectorAll('.destination .btn')
+signBtns.forEach(sign =>
+sign.addEventListener('mouseout', function() {
+    signBtns.forEach(item => {
+        item.style.color = 'purple';
+    })
+}))
+
+//#8 load 
+const loadOne = document.querySelector('.intro img')
+loadOne.addEventListener('load', function(e) {
+    loadOne.style.display = 'none';
+    e.preventDefault();
+})
+
+//#9 mousemove
+const move = document.querySelector('.content-destination img')
+console.log(move);
+move.addEventListener('mousemove', function() {
+    move.style.width = '40%';
+})
+
+//#10 
+const aFocus = document.querySelector("a");
+aFocus.addEventListener("focus", function() {
+  aFocus.style.marginRight = "20px";
+});
